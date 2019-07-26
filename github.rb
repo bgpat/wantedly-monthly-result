@@ -44,8 +44,8 @@ end
     ':memo: 関わった&解決した Issue': "@wantedly+is:issue+commenter:#{ENV['USER']}+closed",
     ':memo: 関わった&未解決の Issue': "@wantedly+is:issue+state:open+commenter:#{ENV['USER']}+updated",
   }.map{|k,v| "- [#{k}](https://github.com/issues?q=#{v}:#{first}..#{last})"}.join("\n"),
-  Description: 'TBD',
-  Comment: 'TBD',
+  Description: 'WIP',
+  Comment: 'WIP',
 }.map do |k, v|
   puts "## #{k}\n\n"
   puts "#{v}\n\n"
