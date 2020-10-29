@@ -35,7 +35,7 @@ end
 
 {
   PREVIOUS: ['<details>', '', *monthly_results, '', '</details>'].join("\n"),
-  'Quarter Goal': format_objectives(get_objectives(view: :owner, page: 1, state: :current)),
+  'Quarter Goal': format_objectives(get_objectives(view: :owner, page: 1, state: :current, user: get_user_id)),
   'Weekly Goal': weekly_goal.join("\n"),
   'Daily Goal': daily_goal.join("\n"),
   'GitHub Activities': {

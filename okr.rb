@@ -15,6 +15,17 @@ raise resp if resp.code != '302'
   cookie.split('; ').first
 end
 
+def get_user_id
+  uri = URI('https://my.15five.com/profile/api/user-profile/')
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  req = Net::HTTP::Get.new(uri)
+  req[:Accept] = 'application/json'
+  req[:Cookie] = @cookies.join('; ')
+  resp = http.request(req)
+  JSON.parse(resp.body)['id']
+end
+
 def get_objectives(**params)
   uri = URI('https://my.15five.com/objectives/api/objectives/')
   uri.query = URI.encode_www_form(params)
